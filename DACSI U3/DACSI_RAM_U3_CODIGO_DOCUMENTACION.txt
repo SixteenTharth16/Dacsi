@@ -1,0 +1,328 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper]{geometry} % Configuración de márgenes y dimensiones de página
+
+\usepackage[utf8]{inputenc} % Codificación de caracteres
+\usepackage[spanish]{babel} % Configuración de idioma español
+\usepackage{amssymb} % Símbolos matemáticos adicionales
+\usepackage{subfigure} % Creación de subfiguras dentro de una figura
+\usepackage{newunicodechar} % Soporte para caracteres Unicode
+\usepackage{graphicx} % Inclusión de imágenes
+\usepackage{amsmath} % Ampliación de funcionalidades matemáticas
+\usepackage{xspace} % Control del espacio después de comandos
+\usepackage{booktabs} % Mejora la apariencia de las tablas
+\usepackage[table,xcdraw]{xcolor} % Colores personalizados para tablas
+\usepackage{url} % Inclusión y formato de enlaces URL
+\usepackage{lineno} % Numeración de líneas
+\usepackage{enumitem} % Control de listas y enumeraciones
+\usepackage{soul} % Resaltado de texto con subrayado
+\usepackage[numbers]{natbib} % Citas bibliográficas y bibliografía
+\usepackage[colorlinks=true, bookmarks=false, citecolor=blue, urlcolor=blue, linkcolor=blue, linktoc=page]{hyperref} % Creación de enlaces y referencias
+\usepackage{titlesec} % Control del formato de títulos de sección
+\usepackage{fancyhdr} % Personalización de encabezados y pies de página
+\usepackage{datetime} % Manipulación de fechas y tiempos
+% Modificar márgenes
+\geometry{left=2.5cm, right=2.5cm, top=2.0cm, bottom=2.0cm}
+% Espaciado entre líneas
+\linespread{1.5} 
+% Cambiar nombre a tablas
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+% Cambiar nombre a lista de tablas
+\addto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}
+% Modificar el estilo de los capítulos
+\titleformat{\chapter}[display]
+{\color{black}\fontfamily{pcr}\LARGE\scshape\raggedleft}
+{\chaptertitlename\ \color{red}\fontsize{20}{00}\mdseries\thechapter} {-10pt} {\color{black}\rmfamily\huge}
+%\titlespacing*{\chapter}{0pt}{0pt}{50pt}
+% Diseño del encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\nouppercase{\rightmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.1pt}
+% Quitar espacio vertical en listas
+\setlist[itemize]{noitemsep, topsep=0pt}
+% Numerar las secciones
+\setcounter{secnumdepth}{4} % Establece la profundidad de numeración de secciones
+\titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{} % Define el formato de las subsubsubsecciones
+% Modificar la tabla de contenido
+\setcounter{tocdepth}{4}
+\addto\captionsspanish{\renewcommand{\contentsname}{Contenido}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% AQUI INICIA EL DOCUMENTO %%%%%%%
+\begin{document}
+\pagenumbering{Roman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\newgeometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\begin{minipage}[c]{0.15\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{01_Figuras/00_TECNM.png}
+\end{minipage}
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \textsc{\large Tecnológico de México Campus Pabellón de Arteaga}\\[0.3cm]
+        \textsc{\large Tecnologias de la Información y la Comunicación }\\[0.3cm]
+        \hrule height1pt
+        \vspace{0.1cm}
+        \hrule height2pt
+        \vspace{0.3cm}
+\end{minipage}
+
+\begin{minipage}[c]{0.15\textwidth}
+    \vspace{0.5cm}
+    \hspace{0.5cm}
+    \vrule width1pt height15cm 
+    \hspace{0.05cm}
+    \vrule width2pt height15cm
+\end{minipage}
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \textbf{\large Implementación de Koha en la blibioteca de la institución}\\[1cm]
+        \text{\large Por}\\[1cm]
+        \text{\Large Ricardo de Jesús Alfaro Martínez}\\[1cm]
+        \textit{\large Proyecto de 9no semestre}\\[1cm]
+        \textbf{\Large Ingenieria en TICs}\\[1cm]
+        \text{\large Dirigido por:}\\[1cm]
+        \text{\Large Eduardo Flores Gallegos}\\[1cm]
+\end{minipage}
+
+\begin{minipage}[c]{0.15\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{01_Figuras/Itpa.png}
+\end{minipage}
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \mdseries{\large Aguascalientes, Ags, \the\year}
+\end{minipage}
+
+\end{titlepage}
+\restoregeometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%% RESUMEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\newgeometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\addcontentsline{toc}{chapter}{Resumen}
+\begin{center}
+\textsc{\Huge Resumen}\\[0.5cm]
+\textbf{\large Implementación de Koha dentro la institución académica aplicando debian como sistema operativo.}\\[0.25cm]
+\text{\large Por: Ricardo de Jesús Alfaro Martínez}\\[0.5cm]
+\end{center}
+
+
+
+\begin{flushright}
+    \textit{\large Dirigido por:}\\
+    \textit{\large Profesor Eduardo Flores Gallegos}
+\end{flushright}
+
+
+\restoregeometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%% TABLA DE CONTENIDO %%%%%%%%%%%%%%%%%
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\chapter{Introducción}
+\textbf{\large En la Biblioteca de la Universidad 
+Tecnológica de Pabellón de Arteaga se implementara Koha, un Sistema Integrado de Gestión de Bibliotecas (SGB) de código abierto, con el objetivo de modernizar los servicios bibliotecarios y ofrecer a los usuarios una experiencia más eficiente y satisfactoria. Koha será instalado en un servidor Debian, una plataforma estable y segura que garantiza el funcionamiento óptimo del sistema.}\\[0.25cm]
+
+\textbf{\large Koha es un software flexible y poderoso que permite gestionar todas las operaciones de una biblioteca, desde el catálogo en línea hasta la circulación de materiales. Al ser de código abierto, Koha se adapta a las necesidades específicas de cada biblioteca y permite a la comunidad de usuarios contribuir a su desarrollo.}\\[0.25cm]
+
+\chapter{Problemática}
+\textbf{\large La problemática que existe dentro de la Institución es la falta de una biblioteca virtual con un acceso dentro y fuera la de universidad, al implementar koha ayudara a los administrativos y a los alumnos a tener a la mano libros de cualquier tipo sin ningún tipo de restricción, esta implementación podrá aportar y pulir muchas de las necesidades de la universidad y a su vez nuevas características.}\\[0.25cm]
+
+\chapter{Objetivo General}
+\textbf{\large El objetivo general de la implementación de koha dentro del Tecnológico es brindar un mejor servicio de la biblioteca a los alumnos, así los todo estudiante interesado puede consultar los libros desde la dirección del sistema, con el apoyo de koha dentro de la institución académica brindara una mejor potencia y calidad de la gestión de libros así como un registro mas completo.}\\[0.25cm]
+
+\chapter{Objetivos}
+\begin{itemize}
+\item Montar sistema operativo Debían
+\item Instalar software Koha
+\item Configurar Koha
+\item Ajustarlo a las necesidades
+\item Capacitación
+\end{itemize}
+\textbf{\large }\\[0.25cm]
+
+\chapter{Propuesta de solución}
+\includegraphics[width=1\textwidth,height=14cm]{01_Figuras/PROPUESTA.png}
+\textbf{\large Imagen 1. Propuesta}\\[0.25cm]
+\chapter{Justificación}
+\textbf{\large El uso de koha dentro de la Institución es una buena opción ya que koha tiene una buena reputación dentro de otras universidades del país tanto como en otras universidades de latinoamerica.
+\item Beneficios económicos:
+        \item Costo inicial: Koha es un software de código abierto, lo que implica un costo inicial significativamente menor en comparación con soluciones comerciales.
+        \item Mantenibilidad: Los costos de mantenimiento a largo plazo también son menores debido a la naturaleza de código abierto y a la amplia comunidad de usuarios.
+\item Funcionalidades:
+        \item Catálogo en línea: Ofrece un acceso fácil y intuitivo a la colección para los usuarios.
+        \item Gestión de circulación: Automatiza los procesos de préstamo, renovación y reserva.
+        \item Módulos adicionales: Permite personalizar el sistema con módulos como adquisiciones, seriales, estadísticas, etc.
+\item Flexibilidad y escalabilidad:
+        \item Adaptabilidad: Se adapta a las necesidades específicas de nuestra biblioteca.
+        \item Crecimiento: Puede escalar para adaptarse a un aumento en la colección y el número de usuarios.
+\item Comunidad y soporte:
+        \item Comunidad activa: Cuenta con una amplia comunidad de usuarios y desarrolladores que ofrecen soporte y contribuyen al desarrollo del software.
+\item Integración:
+        \item Interoperabilidad: Se integra fácilmente con otros sistemas institucionales.}\\[0.25cm]
+\textbf{\large }\\[0.25cm]
+\chapter{Marco Teórico}
+\textbf{Koha}{\large : Es un sistema integrado de gestión de bibliotecas de código abierto, diseñado para automatizar y optimizar los procesos bibliotecarios. Ofrece una amplia gama de funcionalidades, como catalogación, circulación, adquisiciones, OPAC (catálogo en línea) y módulos adicionales. Al ser de código abierto, Koha es altamente personalizable y se adapta a las necesidades de cualquier tipo de biblioteca. Koha: 22.05 (stable). 2023. [https://koha-community.org/].}\\[0.25cm]
+
+\textbf{MariaDB}{\large: Es un sistema de gestión de bases de datos relacionales (SGBDR) de código abierto, altamente compatible con MySQL. Fue creado como una bifurcación de MySQL para garantizar que el desarrollo continuara siendo comunitario y gratuito. MariaDB ofrece un rendimiento superior, mayor seguridad y una amplia gama de características adicionales en comparación con su predecesor. MariaDB: 10.11.5. (2023). [https://mariadb.org/es/]}\\[0.25cm]
+
+\textbf{Marc 21}{\large : Es un estándar internacional diseñado para estructurar y describir información bibliográfica de forma que pueda ser leída y procesada por computadoras. Es como un lenguaje universal que permite a bibliotecas, archivos y otras instituciones compartir información sobre libros, artículos, música, películas y otros materiales de forma eficiente.[https://www.loc.gov/.}\\[0.25cm]
+
+\textbf{Apache}{\large: Apache es un servidor web de código abierto sumamente popular, utilizado para servir contenido web a través de internet.[https://httpd.apache.org/docs/2.4/es/]}\\[0.25cm]
+
+\chapter{Modelo del sistema}
+\textbf{\large ENTREVISTA}\\[0.25cm]
+
+\textbf{\large La entrevista fue realizada en la biblioteca de la universidad, donde Sergio el encargado de la biblioteca fue entrevistado para así obtener información primordial, se hablo sobre koha que es un software libre para bibliotecas la cual ayuda a los bibliotecarios a mantener un orden dentro de la biblioteca al igual que proporcionar un mejor manejo y búsqueda de libros para los alumnos del tecnológico.}\\[0.25cm]
+
+\textbf{\large Sergio comentó la necesidad de tener acceso a la biblioteca de manera retoma, es decir, poder acceder a los libros dentro y fuera de la universidad, de igual manera poder notificar a los estudiantes el tiempo de renovación o entrega de libros para evitar retrasos o perdidas, para que así los estudiantes sean más responsables. }\\[0.25cm]
+
+\textbf{\large En la entrevista se hablo sobre diseño y acomodo del sistema en general, Sergio comentó que quería un diseño atractivo y fácil de usar para lo usuarios, también se hablo si ya se contaba con algún tipo de sistema que sustentara la biblioteca a lo cual respondió que si, pero con la ayuda de koha y sus beneficios es una mejor opción para la biblioteca, para la instalación o implementación de koha solo se ocupa una computadora que este disponible todos los días ya que Debían es un sistema operativo que puede estar funcionando por mucho tiempo sin necesidad de hacer pausas.}\\[0.25cm]
+
+\textbf{\large Posteriormente, el encargado Sergio se mostró entusiasmado en que a futuro se pueda implementar koha en todos los tecnológicos del país ya que le pareció bastante bien el software koha, Sergio platicó el deseo si es que koha cumple sus expectativas, si el sistema logra ser implementado en todas la bibliotecas de los tecnológicos que se pueda tener acceso a libros que estén disponibles en otras universidades hermanas sin restricción por el simple hecho de ser estudiante del tecnológico.}\\[0.25cm]
+
+\textbf{\large Por ultimo platicamos sobre que tipo de capacitación necesaria para que el personal académico y alumnado sepan usar el sistema implementado, a lo cual comentó que le gustaría una capacitación personal dando referencia a un tipo de taller donde yo pueda enseñarles a usar el sistema de manera correcta, también destaco la posibilidad de crear un video tutorial para apoyar de mejor manera la capacitación por cualquier duda a futuro.}\\[0.25cm]
+
+\chapter{Requerimientos Funcionales}
+\centering
+\includegraphics[width=1\textwidth,height=17cm]{01_Figuras/RF.png}
+\textbf{\large Imagen 2. RF}\\[0.25cm]
+\chapter{Requerimientos No Funcionales}
+\centering
+\includegraphics[width=1\textwidth,height=17cm]{01_Figuras/rnf.png}
+\textbf{\large Imagen 3. RNF}\\[0.25cm]
+
+\chapter{Entorno de Trabajo}
+\textbf{\large Características de la PC}\\[0.25cm]
+\textbf{\large La computadora donde se montara el servidor Debian cuenta con un procesador core i3 8th Gen y una memoria Ram de 8gb.}\\[0.25cm]
+
+\chapter{Entrevista}
+
+\includegraphics[width=1\textwidth,height=15cm]{01_Figuras/entre.png}
+
+\chapter{Pantallas}
+\centering
+\textbf{\large Login Koha}\\[0.25cm]
+\includegraphics[width=0.9\textwidth,height=7cm]{01_Figuras/login.png}
+\textbf{\large Imagen 4. Pantalla 1}\\[0.25cm]
+\centering
+\textbf{\large Página Principal}\\[0.25cm]
+\includegraphics[width=0.9\textwidth,height=7cm]{01_Figuras/principal.png}
+\textbf{\large Imagen 5. Pantalla 2}\\[0.25cm]
+\centering
+\textbf{\large Página Catalogación}\\[0.25cm]
+\includegraphics[width=0.9\textwidth,height=7cm]{01_Figuras/cata.png}
+\textbf{\large Imagen 6. Pantalla 3}\\[0.25cm]
+
+\chapter{Manual de uso}
+\begin{itemize}
+\textbf{\large 1. Acceso a Koha}\\[0.25cm]
+\item Visita la página web de la biblioteca http://100.108.208.118:81/
+\item 
+\includegraphics[width=0.8\textwidth,height=7cm]{01_Figuras/login.png}
+\item Ingresa con tu usuario y contraseña (Usuario: SixteenTharth16, Contraseña: Pashapetkuns4).
+\item 
+\includegraphics[width=0.6\textwidth,height=9cm]{01_Figuras/user.png}
+\end{itemize}
+
+\begin{itemize}
+\textbf{\large 2. Búsqueda}\\[0.25cm]
+\item Barra de búsqueda: Utiliza la barra de búsqueda para encontrar libros, revistas, películas y otros materiales. Puedes buscar por:
+\item Título: Escribe el título exacto o palabras clave.
+\item Autor: Escribe el nombre del autor.
+\item Asunto: Introduce palabras clave relacionadas con el tema que buscas.
+\item ISBN: Introduce el número ISBN del libro.
+\item
+\includegraphics[width=1\textwidth,height=8cm]{01_Figuras/search.png}
+\end{itemize}
+
+\begin{itemize}
+\textbf{\large 3. Explorando los Resultados}\\[0.25cm]
+\item Una vez que hayas realizado una búsqueda, se te mostrará una lista de resultados. 
+\item Título: El título del material.
+\item Autor: El autor o autores.
+\item Disponibilidad: Si el material está disponible para préstamo o si está prestado.
+\item Detalles adicionales: Información como el año de publicación, la editorial y una breve descripción.
+\end{itemize}
+
+\begin{itemize}
+\textbf{\large 4. Solicitud para un libro}\\[0.25cm]
+\item Selecciona el material: Haz clic en el título del libro que deseas solicitar y copia el código de barras. 
+\item Verifica la disponibilidad: Asegúrate de que el libro esté disponible para préstamo.
+\item Solicita el préstamo: Haz clic en el botón "Solicitar" o "Pedir prestado".
+\item Recoger: Sigue las instrucciones de la biblioteca para recoger el libro.
+\item 
+\includegraphics[width=1\textwidth,height=8cm]{01_Figuras/cuenta.png}
+\end{itemize}
+
+\begin{itemize}
+\textbf{\large 5. Cuenta Usuario}\\[0.25cm]
+\item Registro: Si aún no tienes una cuenta, regístrate en la página web de la biblioteca.
+\item Acceso: Inicia sesión en tu cuenta para:
+ver tus préstamos activos,
+renovar préstamos (si están disponibles),
+reservar materiales,
+ver tu historial de préstamos,
+actualizar tus datos personales.
+\item
+\includegraphics[width=1\textwidth,height=8cm]{01_Figuras/cuenta.png}
+\end{itemize}
+
+\begin{itemize}
+\textbf{\large 6. Funciones Importantes}\\[0.25cm]
+\item Renovación de préstamos: La mayoría de los préstamos se pueden renovar en línea.
+\item Reservas: Si un material está prestado, puedes reservarlo y recibir una notificación cuando esté disponible.
+\item Listas: Puedes crear listas personalizadas de materiales para futuras consultas.
+\item Sugerencias de lectura: Koha puede ofrecerte sugerencias de lectura basadas en tus intereses.
+\end{itemize}
+
+\chapter{Tiempo dedicado}
+\begin{itemize}
+\textbf{\large Instalación Debían y Koha}\\[0.25cm]
+\item Estimado: 7 Días 
+\item Real : 20 Días
+\item Observaciones: Durante las instalaciones hubo dificultades como el acceso a internet limitado de la misma universidad, errores y la propria dificultad de levantar el servicio de manera correcta.
+\end{itemize}
+
+\begin{itemize}
+\textbf{\large Capacitación}\\[0.25cm]
+\item Estimado: 3-5 Horas 
+\item Real : 10-12 Horas
+\item Observaciones: Debido a las dificultades del acceso a internet, la capacitación tuvo que extenderse para que el administrador de la red diera acceso libre al servidor.
+\end{itemize}
+
+\begin{itemize}
+\textbf{\large Soporte}\\[0.25cm]
+\item Estimado: 1 Mes 
+\item Real : Por conocer
+\item Observaciones: El servicio de koha aun no esta en uso, pero se espera que no tenga ningún tipo de problemas y si llegara a pasar darle una solución rápida.
+\end{itemize}
+
+\chapter{Cotización del proyecto}
+\includegraphics[width=1\textwidth,height=6cm]{01_Figuras/Cotizacion.png}
+\textbf{\large Imagen 7. Cotización}\\[0.25cm]
+
+\chapter{Evidencia y Capacitación}
+\begin{itemize}
+\textbf{\large Como capacitación se creara un video tutorial donde se muestre de manera sencilla y rápida el funcionamiento de Koha, donde se verán las principales actividades que se pueden realizar dentro de, de todas formas se hará una capacitación de manera presencial para un entendimiento mas correcto para el cliente y aquellos que lo usaran.}\\[0.25cm]
+\end{itemize}
+
+\centering
+\includegraphics[width=1\textwidth,height=10cm]{01_Figuras/evidencia1.jpg}
+\textbf{\large Imagen 8. Evidencia 1}\\[0.25cm]
+\centering
+\includegraphics[width=1\textwidth,height=10cm]{01_Figuras/evidencia2.jpg}
+\textbf{\large Imagen 9. Evidencia 2}\\[0.25cm]
+\centering
+\includegraphics[width=1\textwidth,height=12cm]{01_Figuras/evidencia3.jpg}
+\textbf{\large Imagen 10. Evidencia 3}\\[0.25cm]
+
+\end{document}
+

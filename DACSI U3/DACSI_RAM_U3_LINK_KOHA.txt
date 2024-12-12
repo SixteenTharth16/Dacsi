@@ -1,0 +1,4 @@
+LINK KOHA: http://100.108.208.118:81/cgi-bin/koha/mainpage.pl?logout.x=1
+
+USUARIO: SixteenTharth16
+CONTRASEÑA: Pashapetkuns4
